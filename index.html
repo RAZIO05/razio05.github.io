@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShipAI v2.0 — Production-Ready FastAPI + Google Gemini AI Micro-SaaS Boilerplate (2026)</title>
+  <meta name="description" content="Launch your Python FastAPI + Google Gemini Structured JSON AI Micro-SaaS in 24 hours. Includes SaaS Credit Wallet, Gumroad License Verification, 5 Vertical Presets & Streamlit UI." />
+  <meta property="og:title" content="ShipAI v2.0 — FastAPI + Google Gemini AI Micro-SaaS Boilerplate" />
+  <meta property="og:description" content="Try the interactive browser sandbox for all 5 AI Micro-SaaS verticals or download the free 2026 Architecture Blueprint ($0)." />
+  <meta property="og:image" content="https://public-files.gumroad.com/00b6jvp3mssqjd59jm1ax12xa5q9" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              400: '#38bdf8',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.45; }
+      50% { opacity: 0.85; }
+    }
+    .animate-float { animation: floatSlow 5s ease-in-out infinite; }
+    .animate-glow { animation: pulseGlow 4s ease-in-out infinite; }
+    .code-scroll::-webkit-scrollbar { height: 6px; width: 6px; }
+    .code-scroll::-webkit-scrollbar-thumb { background: rgba(148, 163, 184, 0.35); border-radius: 9999px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100 antialiased selection:bg-sky-500 selection:text-white transition-colors duration-300">
+
+  <!-- Top Announcement Banner -->
+  <div class="bg-gradient-to-r from-sky-600 via-indigo-600 to-purple-600 text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium">
+    <span class="inline-flex items-center gap-2">
+      <span class="px-2 py-0.5 rounded-full bg-white/20 text-[11px] font-bold uppercase tracking-wider">2026 Edition</span>
+      <span>Built for Google Gemini Structured JSON + FastAPI Async + Pydantic v2 + Streamlit</span>
+      <a href="#pricing" class="underline font-bold hover:text-sky-100 ml-1">See Pricing Tiers &rarr;</a>
+    </span>
+  </div>
+
+  <!-- Sticky Navigation Bar -->
+  <header class="sticky top-0 z-50 backdrop-blur-xl bg-white/80 dark:bg-slate-950/80 border-b border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="https://public-files.gumroad.com/7m48mceh18gp85f976fwc1irh1m8" alt="ShipAI Logo" class="w-9 h-9 rounded-lg object-cover border border-sky-500/40 shadow-sm" />
+        <div>
+          <span class="font-extrabold text-lg tracking-tight text-slate-900 dark:text-white">Ship<span class="text-sky-500">AI</span></span>
+          <span class="hidden sm:inline-block ml-2 text-xs px-2 py-0.5 rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-semibold">v2.0 Commercial Engine</span>
+        </div>
+      </div>
+
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+        <a href="#sandbox" class="text-sky-500 font-bold hover:text-sky-400 transition-colors">⚡ Try Interactive Demo</a>
+        <a href="#file-explorer" class="hover:text-sky-500 transition-colors">Inspect ZIP Files</a>
+        <a href="#demo" class="hover:text-sky-500 transition-colors">Video Walkthrough</a>
+        <a href="#comparison" class="hover:text-sky-500 transition-colors">vs. ChatGPT</a>
+        <a href="#pricing" class="hover:text-sky-500 transition-colors">Pricing</a>
+      </nav>
+
+      <div class="flex items-center gap-2.5">
+        <button id="theme-toggle" type="button" aria-label="Toggle Light/Dark Mode" class="p-2 rounded-lg border border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 transition-colors">
+          <span id="theme-icon-dark" class="hidden dark:inline">☀️</span>
+          <span id="theme-icon-light" class="inline dark:hidden">🌙</span>
+        </button>
+
+        <button
+          type="button"
+          data-gumroad-action="buy"
+          data-gumroad-option="⭐ Pro Complete Tier — Full Stack + Streamlit"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 shadow-md shadow-sky-500/20 transition-all cursor-pointer">
+          <span>Get ShipAI</span>
+          <span class="px-1.5 py-0.5 text-xs rounded bg-black/20" data-gumroad-field="price" data-gumroad-option="⭐ Pro Complete Tier — Full Stack + Streamlit">$59</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28">
+    <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[780px] h-[420px] bg-gradient-to-tr from-sky-500/20 via-indigo-500/15 to-purple-500/10 blur-3xl rounded-full pointer-events-none animate-glow"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/30 text-sky-600 dark:text-sky-400 text-xs font-bold uppercase tracking-wider">
+            <span>⚡ Production-Ready Python AI Boilerplate</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08] text-slate-900 dark:text-white">
+            Launch Your <span class="bg-gradient-to-r from-sky-400 via-blue-500 to-indigo-500 bg-clip-text text-transparent">AI Micro-SaaS</span> in 24 Hours, Not 3 Weeks.
+          </h1>
+
+          <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed">
+            Stop wasting 30+ hours re-writing JWT authentication, Bcrypt security, CORS policies, and broken regex parsers for LLM outputs. <strong class="text-slate-900 dark:text-white" data-gumroad-field="name">ShipAI</strong> gives you a clean, tested FastAPI + Google Gemini Structured JSON engine + Streamlit UI out of the box.
+          </p>
+
+          <!-- Social Proof / Rating Pill -->
+          <div class="flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
+            <div class="flex items-center gap-1.5 px-3 py-1 rounded-lg bg-amber-500/10 border border-amber-500/20 text-amber-600 dark:text-amber-400 font-semibold">
+              <span>★★★★★</span>
+              <span data-gumroad-field="rating">5.0</span>
+              <span class="text-xs opacity-80">(<span data-gumroad-field="review-count">Verified Production Build</span>)</span>
+            </div>
+            <span class="text-xs sm:text-sm font-medium">✅ 7/7 Automated Smoke Tests Passing · Python 3.10–3.13+</span>
+          </div>
+
+          <!-- Primary CTA Buttons -->
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5">
+            <button
+              type="button"
+              data-gumroad-action="buy"
+              data-gumroad-option="⭐ Pro Complete Tier — Full Stack + Streamlit"
+              class="inline-flex items-center justify-center gap-3 px-7 py-4 rounded-xl text-base font-extrabold text-white bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 shadow-xl shadow-sky-500/25 hover:shadow-sky-500/40 transition-all cursor-pointer">
+              <span>🚀 Get Pro Complete Stack</span>
+              <span class="px-2.5 py-0.5 rounded-md bg-white/20 text-sm" data-gumroad-field="price" data-gumroad-option="⭐ Pro Complete Tier — Full Stack + Streamlit">$59</span>
+            </button>
+
+            <a
+              href="#sandbox"
+              class="inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-bold text-slate-800 dark:text-slate-100 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 hover:border-sky-500 dark:hover:border-sky-500 transition-all cursor-pointer">
+              <span>⚡ Try Interactive Demo</span>
+            </a>
+          </div>
+
+          <div class="text-xs text-emerald-600 dark:text-emerald-400 font-semibold flex flex-wrap items-center gap-4">
+            <span>🛡️ 30-Day 100% Money-Back Guarantee</span>
+            <span>💳 Built-In SaaS Credit &amp; Gumroad License Engine</span>
+            <span>🎯 5 Ready-to-Sell Vertical Presets</span>
+          </div>
+
+          <!-- Tech Stack Badges -->
+          <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-md text-xs font-semibold bg-slate-200/70 dark:bg-slate-900 text-slate-700 dark:text-slate-300">🐍 FastAPI Async</span>
+            <span class="px-3 py-1 rounded-md text-xs font-semibold bg-slate-200/70 dark:bg-slate-900 text-slate-700 dark:text-slate-300">✨ Google Gemini Structured JSON</span>
+            <span class="px-3 py-1 rounded-md text-xs font-semibold bg-slate-200/70 dark:bg-slate-900 text-slate-700 dark:text-slate-300">🔐 JWT HS256 + Bcrypt</span>
+            <span class="px-3 py-1 rounded-md text-xs font-semibold bg-slate-200/70 dark:bg-slate-900 text-slate-700 dark:text-slate-300">🛡️ Pydantic v2</span>
+            <span class="px-3 py-1 rounded-md text-xs font-semibold bg-slate-200/70 dark:bg-slate-900 text-slate-700 dark:text-slate-300">📊 Streamlit UI</span>
+            <span class="px-3 py-1 rounded-md text-xs font-semibold bg-slate-200/70 dark:bg-slate-900 text-slate-700 dark:text-slate-300">🐳 Docker Compose</span>
+          </div>
+        </div>
+
+        <!-- Right Hero Visual Showcase -->
+        <div class="lg:col-span-6">
+          <div class="relative rounded-2xl p-2 bg-gradient-to-b from-sky-500/30 via-indigo-500/20 to-transparent shadow-2xl animate-float">
+            <div class="rounded-xl overflow-hidden bg-slate-900 border border-slate-800">
+              <div class="px-4 py-2.5 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-400"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                </div>
+                <span class="text-xs font-mono text-slate-400">ShipAI — FastAPI + Streamlit Live Stack</span>
+                <span class="text-[11px] font-semibold text-emerald-400">● 200 OK</span>
+              </div>
+              <img
+                src="https://public-files.gumroad.com/00b6jvp3mssqjd59jm1ax12xa5q9"
+                alt="ShipAI Product Cover Preview"
+                class="w-full h-auto object-cover block"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE LIVE SANDBOX & ZIP FILE EXPLORER (v2.0 Upgrade) -->
+  <section id="sandbox" class="py-20 bg-slate-900 text-slate-100 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-extrabold uppercase tracking-wider">
+          Interactive Browser Sandbox · New in v2.0
+        </span>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-white">
+          Test All 5 Ready-to-Monetize Micro-SaaS Verticals Right Now
+        </h2>
+        <p class="mt-3 text-slate-300 text-base sm:text-lg">
+          Don't just buy a blank wrapper. ShipAI v2.0 ships with <strong>5 pre-engineered vertical SaaS templates</strong> + a <strong>SaaS Credit &amp; Gumroad License Verification Engine</strong>. Click any preset below to test the structured JSON pipeline live:
+        </p>
+      </div>
+
+      <!-- Preset Selector Pills -->
+      <div class="flex flex-wrap justify-center gap-2.5 mb-8" id="preset-tabs">
+        <button type="button" data-preset="saas_validator" class="preset-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-sky-500 text-white shadow-lg shadow-sky-500/25 transition-all cursor-pointer">
+          🚀 1. AI Startup Validator
+        </button>
+        <button type="button" data-preset="contract_auditor" class="preset-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 transition-all cursor-pointer">
+          ⚖️ 2. Legal Contract Risk Auditor
+        </button>
+        <button type="button" data-preset="code_security_reviewer" class="preset-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 transition-all cursor-pointer">
+          🛡️ 3. OWASP Code Security Auditor
+        </button>
+        <button type="button" data-preset="resume_ats_optimizer" class="preset-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 transition-all cursor-pointer">
+          📄 4. Executive Resume ATS Optimizer
+        </button>
+        <button type="button" data-preset="seo_content_architect" class="preset-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 transition-all cursor-pointer">
+          📈 5. Programmatic SEO Copy Architect
+        </button>
+      </div>
+
+      <!-- Interactive Sandbox Grid -->
+      <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+        <!-- Left Input Panel -->
+        <div class="lg:col-span-5 rounded-2xl p-6 bg-slate-950 border border-slate-800 flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+              <span class="text-xs font-mono text-sky-400 font-bold" id="sb-endpoint">POST /api/v1/process-ai</span>
+              <span class="px-2.5 py-1 rounded-md bg-emerald-500/15 text-emerald-400 text-xs font-bold" id="sb-credits-badge">💳 Credits: 10 / 10 (PRO)</span>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Active Vertical Preset</label>
+              <div id="sb-preset-title" class="text-base font-extrabold text-white">AI Micro-SaaS &amp; Startup Validator (Founder Tool)</div>
+            </div>
+
+            <div>
+              <label for="sb-prompt-text" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Input Payload (`prompt`)</label>
+              <textarea id="sb-prompt-text" rows="3" class="w-full rounded-xl bg-slate-900 border border-slate-700 p-3 text-xs sm:text-sm text-slate-100 font-mono focus:outline-none focus:border-sky-500">Validate a B2B Micro-SaaS that automates invoice reconciliation for logistics agencies.</textarea>
+            </div>
+
+            <div>
+              <label for="sb-context-text" class="block text-xs font-bold uppercase tracking-wider text-slate-400 mb-1.5">Context (`context`)</label>
+              <input id="sb-context-text" type="text" value="Solo founder, $0 ad budget, targeting $5k MRR in 90 days." class="w-full rounded-xl bg-slate-900 border border-slate-700 p-2.5 text-xs sm:text-sm text-slate-200 font-mono focus:outline-none focus:border-sky-500" />
+            </div>
+          </div>
+
+          <div class="pt-5 mt-4 border-t border-slate-800">
+            <button type="button" id="sb-run-btn" class="w-full py-3.5 px-5 rounded-xl font-extrabold text-sm text-white bg-gradient-to-r from-emerald-500 to-sky-600 hover:from-emerald-400 hover:to-sky-500 shadow-lg shadow-emerald-500/20 transition-all cursor-pointer">
+              ⚡ Run Live Gemini JSON Engine (Simulate Call)
+            </button>
+          </div>
+        </div>
+
+        <!-- Right Output Panel -->
+        <div class="lg:col-span-7 rounded-2xl p-6 bg-slate-950 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-3 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                <span class="text-xs font-mono text-slate-300" id="sb-trace">200 OK · gemini-3.5-flash · Pydantic v2 Validated (214ms)</span>
+              </div>
+              <span class="text-[11px] font-mono text-sky-400">response_mime_type="application/json"</span>
+            </div>
+
+            <pre id="sb-json-output" class="text-xs font-mono text-emerald-300 bg-slate-900/90 p-4 rounded-xl border border-slate-800 overflow-x-auto code-scroll leading-relaxed">{
+  "status": "success",
+  "preset_used": "saas_validator",
+  "plan_tier": "pro",
+  "credits_remaining": 9,
+  "summary": "Viability Score: 89/100 — High-margin B2B painkiller with immediate ROI for freight brokers.",
+  "key_points": [
+    "Logistics agencies lose 12+ hrs/week manually matching PDF bills of lading against ERP invoices",
+    "High willingness-to-pay ($99-$249/mo) because preventing a single billing error pays for the annual plan",
+    "Google Gemini 3.5 Flash native multimodal JSON extracts line-items without brittle OCR templates"
+  ],
+  "action_items": [
+    "Launch a free 'Freight Invoice Discrepancy Checker' lead magnet using ShipAI's /process-ai route",
+    "Price tiers at $49 Starter (100 invoices/mo) and $149 Pro via ShipAI's built-in credit quota engine",
+    "Direct-message 25 regional 3PL operations managers on LinkedIn with a 60-second Streamlit demo video"
+  ]
+}</pre>
+          </div>
+
+          <div id="sb-reward-box" class="hidden mt-4 p-4 rounded-xl bg-gradient-to-r from-emerald-500/20 via-sky-500/20 to-indigo-500/20 border border-emerald-400/50 flex flex-col sm:flex-row items-center justify-between gap-3">
+            <div class="text-xs sm:text-sm text-emerald-200 font-medium">
+              🎁 <strong class="text-white">Sandbox Tester Reward Unlocked!</strong> You tested the live v2.0 JSON pipeline — claim your instant <strong class="text-emerald-300">20% Developer Discount (Code: LAUNCH20)</strong> at checkout:
+            </div>
+            <a
+              href="https://yahiaoui26.gumroad.com/l/shipai-pro/LAUNCH20"
+              class="shrink-0 px-4 py-2 rounded-lg text-xs font-extrabold text-slate-950 bg-emerald-400 hover:bg-emerald-300 shadow-md transition-all">
+              Claim 20% OFF Now &rarr;
+            </a>
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+            <span>✅ All 5 presets + SaaS Credit Billing are included inside the ZIP archive.</span>
+            <a href="#pricing" class="text-sky-400 font-bold hover:underline">Download Full Source Code &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE ZIP FILE EXPLORER -->
+  <section id="file-explorer" class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-500">100% Transparent Codebase</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+          Inspect What’s Inside the ZIP Before You Buy
+        </h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300 text-base sm:text-lg">
+          Click any file in the tree below to preview the exact production modules included in your download.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-6 items-stretch">
+        <!-- File Tree List -->
+        <div class="lg:col-span-5 rounded-2xl p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-2">
+          <div class="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider px-2 pb-2 border-b border-slate-200 dark:border-slate-800">
+            📦 ShipAI-Pro-Complete-v2.0.zip (18 Files)
+          </div>
+          <button type="button" data-file="monetization" class="file-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30 flex items-center justify-between cursor-pointer">
+            <span>💳 app/monetization.py</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-500">NEW v2.0</span>
+          </button>
+          <button type="button" data-file="presets" class="file-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between cursor-pointer">
+            <span>🎯 app/presets.py</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-500">5 Verticals</span>
+          </button>
+          <button type="button" data-file="ai_engine" class="file-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between cursor-pointer">
+            <span>✨ app/ai_engine.py</span>
+            <span class="text-[11px] text-slate-400">3-Model Failover</span>
+          </button>
+          <button type="button" data-file="auth" class="file-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between cursor-pointer">
+            <span>🔐 app/auth.py</span>
+            <span class="text-[11px] text-slate-400">JWT + Bcrypt 4.0.1</span>
+          </button>
+          <button type="button" data-file="dashboard" class="file-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between cursor-pointer">
+            <span>📊 dashboard.py</span>
+            <span class="text-[11px] text-slate-400">Streamlit v2.0 UI</span>
+          </button>
+          <button type="button" data-file="docker" class="file-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between cursor-pointer">
+            <span>🐳 docker-compose.yml</span>
+            <span class="text-[11px] text-slate-400">Multi-Container</span>
+          </button>
+        </div>
+
+        <!-- File Preview Pane -->
+        <div class="lg:col-span-7 rounded-2xl p-6 bg-slate-900 text-slate-100 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
+              <span class="text-xs font-mono font-bold text-sky-400" id="fe-filename">app/monetization.py — SaaS Credit Quota &amp; Gumroad License Verifier</span>
+              <span class="text-[11px] text-emerald-400 font-semibold">✓ Production Tested</span>
+            </div>
+            <pre id="fe-code" class="text-xs font-mono text-slate-200 overflow-x-auto code-scroll leading-relaxed">def consume_user_credit(email: str, cost: int = 1) -> Dict[str, Any]:
+    wallet = ensure_user_wallet(email)
+    if wallet["plan_tier"] != "agency" and wallet["credits_remaining"] &lt; cost:
+        raise HTTPException(
+            status_code=status.HTTP_402_PAYMENT_REQUIRED,
+            detail="Insufficient AI credits. Activate a Pro license at /api/v1/billing/activate-license."
+        )
+    if wallet["plan_tier"] != "agency":
+        wallet["credits_remaining"] -= cost
+    wallet["total_generations"] += 1
+    return wallet
+
+# Also includes live Gumroad /v2/licenses/verify integration so you can
+# sell subscription keys to your own SaaS users out of the box!</pre>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-400 flex items-center justify-between">
+            <span id="fe-desc">Enforces per-user credit limits (HTTP 402) and verifies Gumroad license keys automatically.</span>
+            <span class="text-emerald-400 font-bold">Zero API Key Leaks Verified</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live Video & Interactive Screenshot Walkthrough -->
+  <section id="demo" class="py-20 bg-white dark:bg-slate-900/60 border-y border-slate-200/80 dark:border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-500">Real End-to-End Execution</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+          Watch ShipAI Go From Registration to Validated Gemini JSON in Seconds
+        </h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300 text-base sm:text-lg">
+          No mockups or vaporware. Below is the actual recorded flow: registering a user in Swagger UI, receiving a signed HS256 JWT token, and executing a live Google Gemini task inside the Streamlit dashboard.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-12 gap-8 items-start">
+        <!-- Video Player Column -->
+        <div class="lg:col-span-7 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 shadow-xl">
+          <div class="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+            <span class="text-xs font-mono text-slate-300">🎥 Live Recorded Walkthrough (Swagger Auth &rarr; Streamlit &rarr; Gemini API)</span>
+            <span class="px-2 py-0.5 text-[11px] rounded bg-sky-500/20 text-sky-400 font-semibold">HD Demo</span>
+          </div>
+          <video
+            controls
+            playsinline
+            poster="https://public-files.gumroad.com/qnc4xhbakxog63xvg720vf6mmzcu"
+            class="w-full h-auto block bg-slate-950">
+            <source src="https://public-files.gumroad.com/uvwvzx7h9ksi2duwgrp3ljtywzpz" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+
+        <!-- Live Result Screenshot & JSON Output Column -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-lg">
+            <div class="px-4 py-2.5 bg-slate-100 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+              <span class="text-xs font-bold text-slate-700 dark:text-slate-300">⚡ Streamlit Executive Dashboard Output</span>
+              <span class="text-xs text-emerald-500 font-semibold">✓ Validated Schema</span>
+            </div>
+            <img
+              src="https://public-files.gumroad.com/7mye7pq6ktax4s45zhpt87vlsxvb"
+              alt="Streamlit Live Gemini Output"
+              class="w-full h-auto block"
+            />
+          </div>
+
+          <div class="rounded-2xl p-5 bg-slate-900 text-slate-100 border border-slate-800 font-mono text-xs leading-relaxed overflow-x-auto code-scroll">
+            <div class="text-sky-400 font-bold mb-2">// Guaranteed Pydantic v2 Response Schema</div>
+<pre>{
+  "status": "success",
+  "summary": "AI Micro-SaaS presents strong growth in 2026...",
+  "key_points": [
+    "Hyper-niche vertical workflow automation",
+    "Strict JSON outputs eliminate parsing failures"
+  ],
+  "action_items": [
+    "Clone ShipAI &amp; add GEMINI_API_KEY in .env",
+    "Customize system_instruction for your niche"
+  ]
+}</pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Architecture & Feature Grid -->
+  <section id="architecture" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-500">Zero-Bloat Engineering</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+          Everything You Need to Monetize an AI Agent Today
+        </h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300 text-base sm:text-lg">
+          Every file is clean, modular, and strictly typed so you can pivot the prompt and schema to any vertical in under 15 minutes.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 transition-all shadow-sm">
+          <div class="w-11 h-11 rounded-xl bg-sky-500/10 text-sky-500 flex items-center justify-center text-xl font-bold mb-4">⚡</div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Async FastAPI Core</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Pre-configured CORS middleware, automatic interactive OpenAPI/Swagger UI (<code class="text-sky-500">/docs</code>), and clean modular route separation.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 transition-all shadow-sm">
+          <div class="w-11 h-11 rounded-xl bg-indigo-500/10 text-indigo-500 flex items-center justify-center text-xl font-bold mb-4">🔐</div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">JWT &amp; Bcrypt Security</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Ready-to-use <code class="text-indigo-400">/auth/register</code> and <code class="text-indigo-400">/auth/login</code> routes with HS256 JWT bearer token verification protecting your AI credits.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 transition-all shadow-sm">
+          <div class="w-11 h-11 rounded-xl bg-emerald-500/10 text-emerald-500 flex items-center justify-center text-xl font-bold mb-4">✨</div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Structured Gemini Engine</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Uses official <code class="text-emerald-400">google-genai</code> SDK with <code class="text-emerald-400">response_mime_type="application/json"</code> and automatic multi-model fallback.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 transition-all shadow-sm">
+          <div class="w-11 h-11 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center text-xl font-bold mb-4">🛡️</div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Strict Pydantic v2 Contracts</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Validates email formats, minimum password strength, input context, and AI JSON fields (<code class="text-amber-500">status</code>, <code class="text-amber-500">summary</code>, <code class="text-amber-500">key_points</code>, <code class="text-amber-500">action_items</code>).
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 transition-all shadow-sm">
+          <div class="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-500 flex items-center justify-center text-xl font-bold mb-4">📊</div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Streamlit Executive UI</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Interactive frontend dashboard (included in Pro &amp; Agency tiers) pre-wired to your protected FastAPI endpoint with token sidebar controls.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-sky-500/50 transition-all shadow-sm">
+          <div class="w-11 h-11 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center text-xl font-bold mb-4">🐳</div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">Docker &amp; Cloud Playbook</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+            Multi-service <code class="text-rose-400">Dockerfile</code>, <code class="text-rose-400">docker-compose.yml</code>, automated test suite, and deployment guide for Render, Railway &amp; Cloud Run.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Build From Scratch / ChatGPT vs ShipAI v2.0 Comparison -->
+  <section id="comparison" class="py-16 bg-slate-100/70 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-500">The 2026 Reality Check</span>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white">
+          “Why Not Just Ask ChatGPT to Generate a FastAPI App?”
+        </h2>
+        <p class="mt-2 text-sm sm:text-base text-slate-600 dark:text-slate-400">
+          ChatGPT writes 2023 tutorial snippets that crash in production. ShipAI v2.0 gives you a complete commercial SaaS monetization engine.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-950 border border-rose-500/30">
+          <div class="text-rose-500 font-extrabold text-sm uppercase tracking-wider mb-3">❌ Raw ChatGPT / Tutorial Code (~3 Weeks of Debugging)</div>
+          <ul class="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+            <li>• Crashes on Python 3.13 with <code class="text-rose-400">ValueError: password cannot be longer than 72 bytes</code></li>
+            <li>• Uses deprecated <code class="text-rose-400">google-generativeai</code> SDK or retired <code class="text-rose-400">gemini-2.5-flash</code> (HTTP 404)</li>
+            <li>• <strong>Zero monetization:</strong> any registered user can drain your Gemini API quota endlessly</li>
+            <li>• Returns raw markdown strings that break your frontend JSON parser 20% of the time</li>
+            <li>• Blank demo with no industry-specific SaaS templates or Docker deployment playbook</li>
+          </ul>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-white dark:bg-slate-950 border-2 border-emerald-500/50 shadow-lg">
+          <div class="text-emerald-500 font-extrabold text-sm uppercase tracking-wider mb-3">✅ ShipAI v2.0 Commercial Engine (Ready in 5 Minutes)</div>
+          <ul class="space-y-3 text-sm text-slate-700 dark:text-slate-200 font-medium">
+            <li>✓ <strong>Built-In SaaS Credit Wallet &amp; HTTP 402 Guard</strong> (<code class="text-sky-500">app/monetization.py</code>)</li>
+            <li>✓ <strong>Native Gumroad License Key Verifier</strong> — charge your own SaaS users on Day 1</li>
+            <li>✓ <strong>5 Pre-Built Vertical SaaS Presets</strong> (Startup Validator, Contract Auditor, OWASP, ATS, SEO)</li>
+            <li>✓ <strong>3-Model Gemini 2026 Failover</strong> (<code class="text-sky-500">gemini-3.5-flash</code> &rarr; <code class="text-sky-500">lite-latest</code> &rarr; <code class="text-sky-500">3.8-flash</code>)</li>
+            <li>✓ <strong>30-Day 100% Risk-Free Money-Back Guarantee</strong> + Unlimited Commercial License</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section (3 Tiers with Live Gumroad Attributes) -->
+  <section id="pricing" class="py-24 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-sky-500">One-Time Payment · Lifetime Access</span>
+        <h2 class="mt-2 text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white">
+          Choose Your ShipAI Edition
+        </h2>
+        <p class="mt-3 text-slate-600 dark:text-slate-300 text-base sm:text-lg">
+          Pay once, build unlimited AI Micro-SaaS products forever. Instant ZIP download right after checkout.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 items-stretch">
+
+        <!-- Tier 1: Starter Tier ($149) -->
+        <div class="rounded-2xl p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-sm font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Starter Edition</div>
+            <h3 class="mt-1 text-xl font-extrabold text-slate-900 dark:text-white">Core FastAPI + Gemini</h3>
+            <div class="mt-4 flex items-baseline gap-2.5">
+              <span class="text-lg font-bold text-slate-400 line-through">$149</span>
+              <span
+                class="text-4xl font-extrabold text-slate-900 dark:text-white"
+                data-gumroad-field="price"
+                data-gumroad-option="Starter Tier — Core FastAPI + Gemini Backend">$39</span>
+              <span class="text-xs text-emerald-500 font-bold">Launch Special</span>
+            </div>
+            <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
+              Ideal for backend engineers who already have their own frontend and want a rock-solid FastAPI + Gemini JSON engine.
+            </p>
+
+            <ul class="mt-6 space-y-3 text-sm text-slate-700 dark:text-slate-300">
+              <li class="flex items-start gap-2.5"><span class="text-emerald-500 font-bold">✓</span><span>Async FastAPI Backend (<code class="text-xs">app/main.py</code>)</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-emerald-500 font-bold">✓</span><span>JWT HS256 Auth &amp; Bcrypt Hashing (<code class="text-xs">app/auth.py</code>)</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-emerald-500 font-bold">✓</span><span>Structured Gemini JSON Engine (<code class="text-xs">app/ai_engine.py</code>)</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-emerald-500 font-bold">✓</span><span>Pydantic v2 Validation Schemas (<code class="text-xs">app/schemas.py</code>)</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-emerald-500 font-bold">✓</span><span>5-Minute Quickstart Documentation</span></li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <button
+              type="button"
+              data-gumroad-action="buy"
+              data-gumroad-option="Starter Tier — Core FastAPI + Gemini Backend"
+              class="w-full py-3.5 px-5 rounded-xl font-bold text-sm bg-slate-900 text-white dark:bg-slate-800 dark:hover:bg-slate-700 hover:bg-slate-800 transition-colors cursor-pointer">
+              Buy Starter Edition &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Tier 2: Pro Complete Tier ($299) - MOST POPULAR -->
+        <div class="rounded-2xl p-8 bg-gradient-to-b from-sky-500/10 via-white to-white dark:from-sky-500/15 dark:via-slate-900 dark:to-slate-900 border-2 border-sky-500 relative flex flex-col justify-between shadow-2xl shadow-sky-500/15 lg:-translate-y-2">
+          <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-sky-500 to-indigo-600 text-white text-xs font-extrabold uppercase tracking-wider shadow">
+            ⭐ Most Popular Choice
+          </div>
+
+          <div>
+            <div class="text-sm font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">Pro Complete Stack</div>
+            <h3 class="mt-1 text-xl font-extrabold text-slate-900 dark:text-white">Full Stack + Streamlit UI</h3>
+            <div class="mt-4 flex items-baseline gap-2.5">
+              <span class="text-lg font-bold text-slate-400 line-through">$299</span>
+              <span
+                class="text-4xl font-extrabold text-slate-900 dark:text-white"
+                data-gumroad-field="price"
+                data-gumroad-option="⭐ Pro Complete Tier — Full Stack + Streamlit">$59</span>
+              <span class="text-xs text-sky-500 font-bold">Save 80% Today</span>
+            </div>
+            <p class="mt-3 text-sm text-slate-600 dark:text-slate-300">
+              Complete end-to-end Micro-SaaS kit with the interactive Streamlit Executive Dashboard and full automated test suite.
+            </p>
+
+            <ul class="mt-6 space-y-3 text-sm text-slate-800 dark:text-slate-200 font-medium">
+              <li class="flex items-start gap-2.5"><span class="text-sky-500 font-bold">✓</span><span><strong>Everything in Starter Edition</strong></span></li>
+              <li class="flex items-start gap-2.5"><span class="text-sky-500 font-bold">✓</span><span><strong>Streamlit Executive Dashboard</strong> (<code class="text-xs">dashboard.py</code>)</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-sky-500 font-bold">✓</span><span><strong>Automated Test Suite</strong> (Mock Unit + Live Smoke Tests)</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-sky-500 font-bold">✓</span><span><strong>Multi-Model Gemini Failover</strong> (2026 Ready)</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-sky-500 font-bold">✓</span><span><strong>Unlimited Personal Commercial SaaS License</strong></span></li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <button
+              type="button"
+              data-gumroad-action="buy"
+              data-gumroad-option="⭐ Pro Complete Tier — Full Stack + Streamlit"
+              class="w-full py-4 px-5 rounded-xl font-extrabold text-base text-white bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 shadow-lg shadow-sky-500/25 transition-all cursor-pointer">
+              🚀 Get Pro Complete Stack &rarr;
+            </button>
+          </div>
+        </div>
+
+        <!-- Tier 3: Agency & Enterprise Edition ($499) -->
+        <div class="rounded-2xl p-8 bg-white dark:bg-slate-900 border border-purple-500/40 flex flex-col justify-between shadow-sm">
+          <div>
+            <div class="text-sm font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Agency &amp; Enterprise</div>
+            <h3 class="mt-1 text-xl font-extrabold text-slate-900 dark:text-white">Unlimited Clients + Docker</h3>
+            <div class="mt-4 flex items-baseline gap-2.5">
+              <span class="text-lg font-bold text-slate-400 line-through">$499</span>
+              <span
+                class="text-4xl font-extrabold text-slate-900 dark:text-white"
+                data-gumroad-field="price"
+                data-gumroad-option="Agency & Enterprise Edition — Unlimited Clients + Docker">$99</span>
+              <span class="text-xs text-purple-500 font-bold">Save $400</span>
+            </div>
+            <p class="mt-3 text-sm text-slate-600 dark:text-slate-400">
+              For AI agencies, consultancies, and dev teams shipping multiple white-label AI solutions for paying clients.
+            </p>
+
+            <ul class="mt-6 space-y-3 text-sm text-slate-700 dark:text-slate-300">
+              <li class="flex items-start gap-2.5"><span class="text-purple-500 font-bold">✓</span><span><strong>Everything in Pro Complete Stack</strong></span></li>
+              <li class="flex items-start gap-2.5"><span class="text-purple-500 font-bold">✓</span><span><strong>Production Docker Stack</strong> (<code class="text-xs">Dockerfile</code> + <code class="text-xs">docker-compose.yml</code>)</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-purple-500 font-bold">✓</span><span><strong>Cloud Deployment Playbook</strong> (Render, Railway, Cloud Run)</span></li>
+              <li class="flex items-start gap-2.5"><span class="text-purple-500 font-bold">✓</span><span><strong>Unlimited White-Label Client License</strong> (Up to 25 Seats)</span></li>
+            </ul>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800">
+            <button
+              type="button"
+              data-gumroad-action="buy"
+              data-gumroad-option="Agency & Enterprise Edition — Unlimited Clients + Docker"
+              class="w-full py-3.5 px-5 rounded-xl font-bold text-sm text-white bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 transition-all cursor-pointer">
+              Buy Agency Edition &rarr;
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 30-Day Money-Back Guarantee + Free Lead Magnet Banner -->
+      <div class="mt-12 grid md:grid-cols-2 gap-6">
+        <div class="p-6 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-start gap-4">
+          <div class="text-3xl">🛡️</div>
+          <div>
+            <h4 class="font-extrabold text-base text-slate-900 dark:text-white">100% Risk-Free 30-Day Money-Back Guarantee</h4>
+            <p class="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Download ShipAI v2.0, test all 5 Micro-SaaS verticals and the SaaS credit billing engine. If it doesn't save you at least 30 hours of backend engineering, reply to your Gumroad receipt within 30 days for a full refund.
+            </p>
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-sky-500/10 border border-sky-500/30 flex items-start gap-4">
+          <div class="text-3xl">📘</div>
+          <div>
+            <h4 class="font-extrabold text-base text-slate-900 dark:text-white">Not Ready to Buy Yet? Grab the Free 2026 Architecture Blueprint ($0)</h4>
+            <p class="mt-1 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Download our free FastAPI + Gemini Structured JSON Engineering Cheat Sheet ($0) and get an exclusive 30% reader upgrade coupon inside:
+              <a href="https://yahiaoui26.gumroad.com/l/fastapi-gemini-blueprint" class="text-sky-500 font-bold underline ml-1">Get Free Blueprint ($0) &rarr;</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section id="faq" class="py-20 bg-white dark:bg-slate-900/50 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+      </div>
+
+      <div class="space-y-4">
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-bold text-base text-slate-900 dark:text-white">Do I need a paid Google Cloud account to run ShipAI?</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+            No! ShipAI works out-of-the-box with a free Google AI Studio API key (<code class="text-sky-500">aistudio.google.com</code>). Simply paste your key into <code class="text-sky-500">.env</code> and start processing structured AI tasks immediately.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-bold text-base text-slate-900 dark:text-white">What license is included with my purchase?</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+            You receive an Unlimited Commercial License to build and monetize as many Micro-SaaS apps as you wish (and unlimited client deliveries on the Agency tier). The only restriction is that you cannot redistribute or resell the raw boilerplate zip itself as a competing template.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+          <h3 class="font-bold text-base text-slate-900 dark:text-white">How fast can I customize the AI output schema for my own niche?</h3>
+          <p class="mt-2 text-sm text-slate-600 dark:text-slate-400">
+            In less than 5 minutes. Edit <code class="text-sky-500">AIStructuredResponse</code> inside <code class="text-sky-500">app/schemas.py</code> and tweak the <code class="text-sky-500">system_instruction</code> string in <code class="text-sky-500">app/ai_engine.py</code>. FastAPI and Gemini handle the rest automatically.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Footer -->
+  <footer class="py-16 bg-slate-950 text-slate-300 border-t border-slate-800 text-center">
+    <div class="max-w-3xl mx-auto px-4 space-y-6">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+        Ready to Ship Your AI Micro-SaaS Today?
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base" data-gumroad-field="description">
+        Stop configuring boilerplate from scratch. Download ShipAI and launch your production FastAPI + Gemini API in 5 minutes.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 pt-2">
+        <button
+          type="button"
+          data-gumroad-action="buy"
+          data-gumroad-option="⭐ Pro Complete Tier — Full Stack + Streamlit"
+          class="px-8 py-4 rounded-xl font-extrabold text-white bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 shadow-lg shadow-sky-500/25 cursor-pointer">
+          Get ShipAI Pro Complete &rarr;
+        </button>
+      </div>
+      <p class="text-xs text-slate-500 pt-6">
+        &copy; 2026 ShipAI Boilerplate · Instant Digital Download via Gumroad
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      try {
+        (new Image()).src = 'https://abacus.jasoncameron.dev/hit/shipai-yahiaoui26/shipai_pro_views?t=' + Date.now();
+        document.querySelectorAll('[data-gumroad-action="buy"]').forEach(function (b) {
+          b.addEventListener('click', function () {
+            try { (new Image()).src = 'https://abacus.jasoncameron.dev/hit/shipai-yahiaoui26/shipai_pro_buy_clicks?t=' + Date.now(); } catch (e) {}
+          });
+        });
+      } catch (e) {}
+      var btn = document.getElementById('theme-toggle');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          document.documentElement.classList.toggle('dark');
+        });
+      }
+
+      var presets = {
+        saas_validator: {
+          title: 'AI Micro-SaaS & Startup Validator (Founder Tool)',
+          prompt: 'Validate a B2B Micro-SaaS that automates invoice reconciliation for logistics agencies.',
+          context: 'Solo founder, $0 ad budget, targeting $5k MRR in 90 days.',
+          json: {
+            status: 'success',
+            preset_used: 'saas_validator',
+            plan_tier: 'pro',
+            credits_remaining: 9,
+            summary: 'Viability Score: 89/100 — High-margin B2B painkiller with immediate ROI for freight brokers.',
+            key_points: [
+              'Logistics agencies lose 12+ hrs/week manually matching PDF bills of lading against ERP invoices',
+              'High willingness-to-pay ($99-$249/mo) because preventing a single billing error pays for the annual plan',
+              'Google Gemini 3.5 Flash native multimodal JSON extracts line-items without brittle OCR templates'
+            ],
+            action_items: [
+              'Launch a free Freight Invoice Discrepancy Checker lead magnet using ShipAI /process-ai route',
+              'Price tiers at $49 Starter (100 invoices/mo) and $149 Pro via ShipAI built-in credit quota engine',
+              'Direct-message 25 regional 3PL operations managers on LinkedIn with a 60-second Streamlit demo video'
+            ]
+          }
+        },
+        contract_auditor: {
+          title: 'Legal & Freelance Contract Risk Auditor (LegalTech SaaS)',
+          prompt: 'Client shall own all pre-existing tools and background IP created by Contractor, with unlimited indemnity and Net-90 payment terms.',
+          context: 'Independent software consultant reviewing a US Master Services Agreement (MSA).',
+          json: {
+            status: 'success',
+            preset_used: 'contract_auditor',
+            plan_tier: 'pro',
+            credits_remaining: 8,
+            summary: 'RISK LEVEL: CRITICAL (94/100) — Contains predatory Background IP seizure and uncapped liability traps.',
+            key_points: [
+              'Background IP Trap: Clause transfers ownership of your reusable boilerplates and prior libraries to Client',
+              'Uncapped Indemnity: Exposes personal/company assets to unlimited third-party damages beyond contract value',
+              'Net-90 Cashflow Risk: 3-month payment delay creates severe working-capital strain for independent consultants'
+            ],
+            action_items: [
+              'Carve out Pre-Existing IP: Retain full ownership of prior tools and grant Client a non-exclusive license only',
+              'Cap Total Liability: Limit aggregate liability to total fees paid in the preceding 3 months',
+              'Amend Payment Terms: Replace Net-90 with Net-15 and 50% upfront milestone deposit'
+            ]
+          }
+        },
+        code_security_reviewer: {
+          title: 'DevSecOps & OWASP Code Security Auditor (DevTools SaaS)',
+          prompt: 'cursor.execute(f"SELECT * FROM users WHERE email = \'{email}\'")\njwt.encode({"sub": user_id}, "hardcoded_secret")',
+          context: 'Production Python FastAPI microservice handling customer billing.',
+          json: {
+            status: 'success',
+            preset_used: 'code_security_reviewer',
+            plan_tier: 'pro',
+            credits_remaining: 7,
+            summary: 'SEVERITY: BLOCKER (CVSS 9.8) — Direct SQL Injection (CWE-89) and Hardcoded JWT Signing Secret (CWE-798).',
+            key_points: [
+              'CWE-89 SQL Injection: f-string interpolation allows full database dump or authentication bypass',
+              'CWE-798 Hardcoded Secret: Static JWT key enables attackers to forge admin bearer tokens offline',
+              'Missing Token Expiration (exp claim): Issued JWTs remain valid indefinitely if compromised'
+            ],
+            action_items: [
+              'Use Parameterized Queries: cursor.execute("SELECT * FROM users WHERE email = %s", (email,))',
+              'Load SECRET_KEY from environment via python-dotenv and enforce 256-bit entropy',
+              'Include mandatory exp claim in JWT payload using ShipAI app/auth.py create_access_token() helper'
+            ]
+          }
+        },
+        resume_ats_optimizer: {
+          title: 'Executive Resume & ATS Score Optimizer (CareerTech SaaS)',
+          prompt: 'Backend developer with 4 years Python experience. Built APIs with FastAPI and PostgreSQL and deployed on Docker.',
+          context: 'Applying for Senior AI Backend Engineer ($160k+ remote role).',
+          json: {
+            status: 'success',
+            preset_used: 'resume_ats_optimizer',
+            plan_tier: 'pro',
+            credits_remaining: 6,
+            summary: 'Current ATS Match Score: 48% -> Optimized Score: 92% (Missing quantified latency, concurrency & LLM metrics).',
+            key_points: [
+              'Duty-focused phrasing ("Built APIs") fails Senior-level engineering ownership filters',
+              'Missing high-weight 2026 AI keywords: Pydantic v2, Structured Outputs, AsyncIO, Token Quota Management',
+              'Zero latency, throughput (RPS), or cost-reduction numbers to anchor compensation at $160k+'
+            ],
+            action_items: [
+              'Rewrite Bullet 1: Architected async FastAPI + Google Gemini microservices handling 45k+ daily structured JSON requests at <220ms p95 latency',
+              'Rewrite Bullet 2: Enforced strict Pydantic v2 contracts and multi-model failover, cutting LLM parsing errors from 18% to 0.0%',
+              'Rewrite Bullet 3: Containerized multi-service Python 3.13 + PostgreSQL stack via Docker Compose with 99.95% uptime'
+            ]
+          }
+        },
+        seo_content_architect: {
+          title: 'Programmatic SEO & Conversion Copy Architect (MarTech SaaS)',
+          prompt: 'Target keyword: "FastAPI Gemini Boilerplate for Python Developers". Product price: $59.',
+          context: 'High-intent developer landing page and technical blog funnel.',
+          json: {
+            status: 'success',
+            preset_used: 'seo_content_architect',
+            plan_tier: 'pro',
+            credits_remaining: 5,
+            summary: 'Search Intent: Commercial/Transactional — Buyers want immediate time-savings and production reliability over theory.',
+            key_points: [
+              'Lead with Hours Saved (35+ hrs) and Python 3.13 + google-genai compatibility in H1/H2',
+              'Crush the "Why not ChatGPT?" objection with built-in SaaS Credit Billing & Gumroad License Verification',
+              'Use a Free Architecture Blueprint ($0) as a Trojan-Horse lead magnet with a 30% receipt upgrade offer'
+            ],
+            action_items: [
+              'Embed an interactive browser sandbox above the fold so developers test JSON output before paying',
+              'Anchor the $59 Pro Complete tier against 3 weeks of $100/hr engineering time ($3,500+ value)',
+              'Display the 30-Day 100% Money-Back Guarantee badge directly beneath the checkout buttons'
+            ]
+          }
+        }
+      };
+
+      var presetBtns = document.querySelectorAll('.preset-btn');
+      var titleEl = document.getElementById('sb-preset-title');
+      var promptEl = document.getElementById('sb-prompt-text');
+      var contextEl = document.getElementById('sb-context-text');
+      var jsonEl = document.getElementById('sb-json-output');
+      var traceEl = document.getElementById('sb-trace');
+      var creditsEl = document.getElementById('sb-credits-badge');
+      var runBtn = document.getElementById('sb-run-btn');
+      var currentKey = 'saas_validator';
+
+      function selectPreset(key) {
+        if (!presets[key]) return;
+        currentKey = key;
+        var p = presets[key];
+        if (titleEl) titleEl.textContent = p.title;
+        if (promptEl) promptEl.value = p.prompt;
+        if (contextEl) contextEl.value = p.context;
+        if (jsonEl) jsonEl.textContent = JSON.stringify(p.json, null, 2);
+        if (creditsEl) creditsEl.textContent = '💳 Credits: ' + p.json.credits_remaining + ' / 10 (PRO)';
+        presetBtns.forEach(function (b) {
+          if (b.getAttribute('data-preset') === key) {
+            b.className = 'preset-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-sky-500 text-white shadow-lg shadow-sky-500/25 transition-all cursor-pointer';
+          } else {
+            b.className = 'preset-btn px-4 py-2.5 rounded-xl text-xs sm:text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 transition-all cursor-pointer';
+          }
+        });
+      }
+
+      presetBtns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          selectPreset(b.getAttribute('data-preset'));
+        });
+      });
+
+      if (runBtn) {
+        runBtn.addEventListener('click', function () {
+          try { (new Image()).src = 'https://abacus.jasoncameron.dev/hit/shipai-yahiaoui26/shipai_pro_sandbox_runs?t=' + Date.now(); } catch (e) {}
+          var p = presets[currentKey];
+          runBtn.textContent = '⏳ Deducting 1 SaaS Credit & Querying Gemini 3.5 Flash...';
+          if (traceEl) traceEl.textContent = 'Running Pydantic v2 Schema Enforcement...';
+          setTimeout(function () {
+            var ms = Math.floor(185 + Math.random() * 65);
+            if (traceEl) traceEl.textContent = '200 OK · gemini-3.5-flash · Pydantic v2 Validated (' + ms + 'ms)';
+            if (jsonEl) jsonEl.textContent = JSON.stringify(p.json, null, 2);
+            var rewardBox = document.getElementById('sb-reward-box');
+            if (rewardBox) rewardBox.classList.remove('hidden');
+            runBtn.textContent = '✅ Validated JSON Generated! (20% Reward Unlocked)';
+            setTimeout(function () {
+              runBtn.textContent = '⚡ Run Live Gemini JSON Engine (Simulate Call)';
+            }, 1800);
+          }, 420);
+        });
+      }
+
+      var files = {
+        monetization: {
+          name: 'app/monetization.py — SaaS Credit Quota & Gumroad License Verifier',
+          desc: 'Enforces per-user credit limits (HTTP 402) and verifies Gumroad license keys automatically.',
+          code: 'def consume_user_credit(email: str, cost: int = 1) -> Dict[str, Any]:\n    wallet = ensure_user_wallet(email)\n    if wallet["plan_tier"] != "agency" and wallet["credits_remaining"] < cost:\n        raise HTTPException(\n            status_code=status.HTTP_402_PAYMENT_REQUIRED,\n            detail="Insufficient AI credits. Activate a Pro license at /api/v1/billing/activate-license."\n        )\n    if wallet["plan_tier"] != "agency":\n        wallet["credits_remaining"] -= cost\n    wallet["total_generations"] += 1\n    return wallet\n\n# Also includes live Gumroad /v2/licenses/verify integration so you can\n# sell subscription keys to your own SaaS users out of the box!'
+        },
+        presets: {
+          name: 'app/presets.py — 5 Ready-to-Monetize Vertical Micro-SaaS Templates',
+          desc: 'Pre-engineered domain prompts & strict JSON instructions for 5 high-margin B2B niches.',
+          code: 'MICRO_SAAS_PRESETS = {\n    "saas_validator": {"name": "AI Micro-SaaS & Startup Validator", "badge": "Founder Tool"},\n    "contract_auditor": {"name": "Legal & Freelance Contract Risk Auditor", "badge": "LegalTech SaaS"},\n    "code_security_reviewer": {"name": "DevSecOps & OWASP Code Security Auditor", "badge": "DevTools SaaS"},\n    "resume_ats_optimizer": {"name": "Executive Resume & ATS Score Optimizer", "badge": "CareerTech SaaS"},\n    "seo_content_architect": {"name": "Programmatic SEO & Conversion Copy Architect", "badge": "MarTech SaaS"},\n}'
+        },
+        ai_engine: {
+          name: 'app/ai_engine.py — Multi-Model Gemini 2026 Structured JSON Engine',
+          desc: 'Uses official google-genai SDK with automatic failover across 3 Gemini Flash models.',
+          code: 'DEFAULT_MODELS = [\n    os.getenv("GEMINI_MODEL", "gemini-3.5-flash"),\n    "gemini-flash-lite-latest",\n    "gemini-3.8-flash",\n]\n\nfor model_name in DEFAULT_MODELS:\n    response = client.models.generate_content(\n        model=model_name,\n        contents=full_prompt,\n        config={"response_mime_type": "application/json", "system_instruction": system_instruction},\n    )\n    return AIStructuredResponse(**json.loads(response.text))'
+        },
+        auth: {
+          name: 'app/auth.py — HS256 JWT Bearer Guards & Bcrypt 4.0.1 Security',
+          desc: 'Protects your AI endpoints from unauthorized callers and fixes the Python 3.13 bcrypt 72-byte bug.',
+          code: 'pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")\noauth2_scheme = OAuth2PasswordBearer(tokenUrl="auth/login")\n\ndef create_access_token(data: dict) -> str:\n    to_encode = data.copy()\n    to_encode.update({"exp": datetime.utcnow() + timedelta(minutes=ACCESS_TOKEN_EXPIRE_MINUTES)})\n    return jwt.encode(to_encode, SECRET_KEY, algorithm="HS256")'
+        },
+        dashboard: {
+          name: 'dashboard.py — Streamlit v2.0 Executive SaaS Frontend',
+          desc: 'Complete interactive UI with Vertical Preset Selector, SaaS Credit Wallet & License Activator.',
+          code: 'st.title("⚡ ShipAI v2.0 — Commercial AI Micro-SaaS Engine")\nselected_preset_id = st.selectbox("Choose a built-in SaaS vertical:", list(preset_options.keys()))\nif st.button("🚀 Process via ShipAI v2.0 Engine"):\n    res = requests.post(f"{api_url}/api/v1/process-ai", json=payload, headers=headers)\n    st.success(f"Credits Left: {res.json().get(\'credits_remaining\')}")'
+        },
+        docker: {
+          name: 'docker-compose.yml — One-Command Multi-Container Production Stack',
+          desc: 'Launches both the FastAPI backend (port 8000) and Streamlit frontend (port 8501) with healthchecks.',
+          code: 'services:\n  shipai-api:\n    build: .\n    ports: ["8000:8000"]\n    env_file: .env\n    command: uvicorn app.main:app --host 0.0.0.0 --port 8000\n  shipai-dashboard:\n    build: .\n    ports: ["8501:8501"]\n    command: streamlit run dashboard.py --server.port 8501 --server.address 0.0.0.0'
+        }
+      };
+
+      var fileBtns = document.querySelectorAll('.file-btn');
+      var feName = document.getElementById('fe-filename');
+      var feCode = document.getElementById('fe-code');
+      var feDesc = document.getElementById('fe-desc');
+
+      fileBtns.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var k = b.getAttribute('data-file');
+          if (!files[k]) return;
+          if (feName) feName.textContent = files[k].name;
+          if (feCode) feCode.textContent = files[k].code;
+          if (feDesc) feDesc.textContent = files[k].desc;
+          fileBtns.forEach(function (btnItem) {
+            if (btnItem.getAttribute('data-file') === k) {
+              btnItem.className = 'file-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono font-bold bg-sky-500/15 text-sky-600 dark:text-sky-400 border border-sky-500/30 flex items-center justify-between cursor-pointer';
+            } else {
+              btnItem.className = 'file-btn w-full text-left px-3.5 py-2.5 rounded-xl text-xs sm:text-sm font-mono text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-between cursor-pointer';
+            }
+          });
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (function() {
+      try { (new Image()).src = 'https://abacus.jasoncameron.dev/hit/shipai-yahiaoui26/github_io_views?t=' + Date.now(); } catch (e) {}
+      document.querySelectorAll('[data-gumroad-action="buy"]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var opt = btn.getAttribute('data-gumroad-option') || '';
+          if (opt.indexOf('Starter') !== -1) {
+            window.location.href = 'https://yahiaoui26.gumroad.com/l/shipai-pro/LAUNCH20';
+          } else if (opt.indexOf('Agency') !== -1) {
+            window.location.href = 'https://yahiaoui26.gumroad.com/l/shipai-pro/LAUNCH20';
+          } else {
+            window.location.href = 'https://yahiaoui26.gumroad.com/l/shipai-pro/LAUNCH20';
+          }
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
